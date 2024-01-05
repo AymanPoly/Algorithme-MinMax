@@ -1,0 +1,49 @@
+"Python version"
+
+def MinMax(L):
+  Comparaison=[]
+  MAX=[]
+  MIN=[]
+  i=0
+  j=0
+  m=max(L)
+  mi=min(L)
+
+  for t in range (len(L)):
+
+    if(L[t]==m):
+      MAX=MAX+[t]
+
+    if (L[t]==mi):
+      MIN=MIN+[t]
+
+  while(True):
+
+    if(j==len(MIN) or i==len(MAX)):
+      break
+
+    elif( MAX[i]<=MIN[j] ):
+      t=MIN[j]-MAX[i]
+      Comparaison= Comparaison + [t]
+      i=i+1
+
+
+    elif(MAX[i]>MIN[j]):
+
+       t=MAX[i]-MIN[j]
+       Comparaison= Comparaison + [t]
+       j=j+1
+  return min(Comparaison)
+
+L1=[1,1,1,1,-19]
+L2=[-19,1,1,1,1]
+M=[1,2,3]
+J=[1,2,-3,2]
+G=[-1,2,3,2]
+T=[0]
+print(MinMax(L1))
+print(MinMax(L2))
+print(MinMax(T))
+print(MinMax(M))
+print(MinMax(J))
+print(MinMax(G))
